@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/* ---------- Theme tokens ---------- */
+@theme {
+  --color-surface:   #0b1220;
+  --color-surface-2: #0f172a;
+  --color-surface-3: #131a2a;
+  --color-border:    #1e293b;
+  --color-accent:    #22d3ee;
+}
+
+/* ---------- Base ---------- */
+html, body, #root {
+  min-height: 100%;
+  background-color: var(--color-surface);
+  color: #e2e8f0;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-feature-settings: "tnum" 1, "cv11" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Reusable component classes ---------- */
+@layer components {
+  .card {
+    @apply bg-slate-900/60 border border-slate-800 rounded-lg p-4 backdrop-blur;
+  }
+
+  .btn {
+    @apply px-3 py-2 rounded-md text-sm font-medium transition-colors border;
+  }
+  .btn-primary {
+    @apply bg-cyan-500 text-slate-950 border-cyan-500 hover:bg-cyan-400;
+  }
+  .btn-secondary {
+    @apply bg-slate-800 text-slate-200 border-slate-700 hover:bg-slate-700;
+  }
+  .btn-danger {
+    @apply bg-red-500/10 text-red-300 border-red-500/40 hover:bg-red-500/20;
+  }
+
+  .input {
+    @apply w-full bg-slate-950/60 border border-slate-700 rounded-md px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/60 focus:border-cyan-500/60;
+  }
+
+  .label {
+    @apply block text-[11px] uppercase tracking-wider text-slate-400 mb-1.5;
+  }
+
+  .kpi-value {
+    @apply text-3xl font-semibold tabular-nums text-slate-50 leading-none;
+  }
+  .kpi-label {
+    @apply text-[11px] uppercase tracking-wider text-slate-400;
+  }
+
+  .table-head {
+    @apply bg-slate-900/80 text-slate-400 uppercase text-[11px] tracking-wider;
+  }
+
+  .divider {
+    @apply border-t border-slate-800;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium border;
+  }
+  .badge-in {
+    @apply bg-emerald-500/10 text-emerald-300 border-emerald-500/30;
+  }
+  .badge-out {
+    @apply bg-amber-500/10 text-amber-300 border-amber-500/30;
+  }
+  .badge-neutral {
+    @apply bg-slate-700/40 text-slate-300 border-slate-600/50;
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 0 1px rgb(34 211 238 / 0.2), 0 0 24px -6px rgb(34 211 238 / 0.35);
+  }
+}
+
+/* ---------- Native select / option dark theme ---------- */
+select.input {
+  color-scheme: dark;
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+select.input option {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+select.input option:checked,
+select.input option:hover {
+  background-color: #1e293b;
+  color: #22d3ee;
+}
+
+/* ---------- Date input dark theme ---------- */
+input[type="date"].input {
+  color-scheme: dark;
+}
+
+input[type="date"].input::-webkit-calendar-picker-indicator {
+  filter: invert(0.85);
+  cursor: pointer;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1220;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1e293b #0b1220;
+}
